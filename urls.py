@@ -1,11 +1,9 @@
-from django.urls import path
-
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path("", views.index, name="assessment"),
-    path("result/", views.result, name="result"),
-    path("result/?uuid=<uuid>/", views.result, name="result"),
-    path("delete/", views.delete_assessment, name="delete_assessment"),
-    path('delete/?uuid=<uuid>/', views.delete_assessment, name='delete_assessment'),
+    path('', views.home, name='home'),
+    path('home', views.home, name='home'),
+    path('sign_up', views.sign_up, name='sign_up'),
+    path('', include('django.contrib.auth.urls'))
 ]
